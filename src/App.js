@@ -1,10 +1,9 @@
-import './App.scss'
-
-import HomePage from 'Home'
+// import LoginPage from 'user/pages/Login/Login'
+import HomePage from 'user/pages/Home/Home'
 function App() {
    return (
       <HomePage />
-   );
+   )
 }
 
-export default App;
+export default App

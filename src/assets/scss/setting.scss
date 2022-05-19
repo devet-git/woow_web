@@ -1,0 +1,36 @@
+@import "./fonts";
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 20px;
+   font-family: "Yanone Kaffeesatz", sans-serif !important;
+}
+
+body {
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+   text-decoration: none;
+   color: unset;
+}
+
+img {
+   width: 100%;
+   user-select: none;
+   -webkit-user-drag: none;
+   pointer-events: none;
+}
+
+button {
+   color: inherit;
+   cursor: pointer;
+   font-family: inherit;
+   font-size: inherit;
+   border: unset;
+}
