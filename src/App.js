@@ -1,9 +1,8 @@
-import './App.scss'
+import LoginPage from 'user/pages/Login/Login'
 
-import HomePage from 'Home'
 function App() {
    return (
-      <HomePage />
+      <LoginPage />
    )
 }
 
