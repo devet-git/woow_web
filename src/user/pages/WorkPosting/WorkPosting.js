@@ -12,7 +12,7 @@ export default function WorkPostingPage() {
                <a href='#!'>Bài Đăng</a>
                <a href='#!'>Tuyển Dụng</a>
             </div>
-            <div className='acount'>
+            <div className='account'>
                <a href='#!'>Tài Khoản</a>
             </div>
          </div>
@@ -38,7 +38,7 @@ export default function WorkPostingPage() {
                      </div>
                      <div className='--input-wrapper'>
                         <label htmlFor="wage">Lương: </label>
-                        <input className='wage' type='number' id='wage' autoFocus />
+                        <input className='wage' type='text' id='wage' autoFocus />
                         <div>
                            <label htmlFor="amount">Số lượng: </label>
                            <input className='amount' type='number' id='amount' autoFocus />

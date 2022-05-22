@@ -1,0 +1,201 @@
+.account-management-page {
+   .nav-bar {
+      align-items: center;
+      box-shadow: 0 1px 5px #dadada;
+      padding: 5px 20px;
+      position: sticky;
+      top: 0;
+      background-color: #ffffffa7;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      .logo {
+         width: 100px;
+      }
+      .navigation {
+         a {
+            padding: 5px 10px;
+         }
+      }
+      .account {
+         padding: 7px 13px;
+         background-color: #7cafa5;
+         border-radius: 5px;
+         color: white;
+         cursor: pointer;
+      }
+   }
+   .--main {
+      margin: 0px 150px;
+      padding: 20px 0px;
+   }
+   .personal-infor {
+      .avatar {
+         .person-img {
+            width: 150px;
+            height: 150px;
+            background-color: #c79bda;
+            border-radius: 50%;
+         }
+         .person-name {
+            padding: 15px;
+         }
+      }
+      .edit-information {
+         button {
+            padding: 7px 13px;
+            background-color: #c79bda;
+            border-radius: 5px;
+            color: white;
+            margin: 5px;
+         }
+      }
+      .edit-password,
+      .edit-infor {
+         .btn-change-pass,
+         .btn-edit-infor {
+            position: relative;
+         }
+      }
+      #form-edit-infor {
+         bottom: 10%;
+      }
+      #form-edit-pass {
+         bottom: 20%;
+      }
+      .--card {
+         position: absolute;
+         left: 25%;
+         z-index: 1;
+         background-color: lighten($color: #c7e3ee, $amount: 4);
+         width: 50%;
+         padding: 30px 120px;
+         border-radius: 5px;
+         box-shadow: 0 1px 5px #368db0;
+         display: none;
+         h3 {
+            text-align: center;
+            margin: 10px;
+         }
+         .back {
+            width: 100%;
+            cursor: pointer;
+         }
+         .--form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 10px;
+            .--input-wrapper {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               margin: 10px 0px;
+               width: 100%;
+               input,
+               select {
+                  border: 1px solid #368db0;
+                  outline: none;
+                  border-radius: 3px;
+                  min-width: 145px;
+                  padding: 5px 3px;
+                  color: #368db0;
+                  font-family: inherit;
+                  font-size: 1em;
+                  margin-left: 5px;
+               }
+               .name,
+               .username,
+               .email,
+               .old-pass,
+               .new-pass,
+               .repeat-new-pass {
+                  width: 60%;
+               }
+               .birthday,
+               select {
+                  width: 40%;
+               }
+            }
+            .confirm-btn {
+               border: none;
+               background-color: #368db0;
+               padding: 7px 0;
+               width: 20%;
+               font-size: 18px;
+               color: white;
+               border-radius: 3px;
+               margin-top: 20px;
+            }
+         }
+      }
+   }
+   .posted-received-work {
+      margin-top: 20px;
+      .left,
+      .right {
+         width: 50%;
+         height: 100vh;
+         padding: 20px;
+         border-radius: 10px;
+         background-color: #f4e4fb;
+         box-shadow: 0 1px 5px rgb(195, 114, 249);
+         h3 {
+            text-align: center;
+            padding: 10px 0px 30px 0px;
+         }
+         .posted,
+         .received {
+            border: 1px solid #b760b7;
+            border-radius: 5px;
+            padding: 10px 20px;
+            background-color: white;
+            h4 {
+               text-align: center;
+               padding: 5px 0px 10px 0px;
+            }
+         }
+      }
+      .left {
+         margin-right: 7px;
+      }
+      .right {
+         margin-left: 7px;
+         .btn-del {
+            padding: 5px 10px;
+            background-color: #c79bda;
+            border-radius: 3px;
+            color: white;
+            margin: 5px;
+         }
+      }
+      .btn {
+         button {
+            background-color: transparent;
+         }
+         .btn-detail {
+            font-size: 16px;
+         }
+         .edit-posted {
+            .btn-choose {
+               position: relative;
+            }
+            .edit-del {
+               position: absolute;
+               margin-left: 30px;
+               background-color: white;
+               box-shadow: 0 1px 3px #b760b7;
+               display: none;
+               button {
+                  padding: 5px 10px;
+                  border-bottom: 1px solid #b760b7;
+               }
+            }
+            .show {
+               display: flex;
+               flex-direction: column;
+            }
+         }
+      }
+   }
+}
