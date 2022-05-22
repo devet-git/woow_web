@@ -1,5 +1,5 @@
 import './Home.scss'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 
 const Header = () => (
@@ -35,14 +35,10 @@ export default function HomePage() {
       <div className='home-page' style={{ height: screenWidth + 'px' }}>
          <div className="sticky-wrapper">
             <Header />
-            {/* <Link to='/works' className='btn-link flex center'>
-            <img className='cloud-image' src={require('assets/images/cloud.png')} alt="" />
-            <span className='btn-name' >Find work now</span>
-            </Link> */}
-            <a to='/works' className='btn-link flex center'>
+            <Link to='/tim-viec' className='btn-link flex center'>
                <img className='cloud-image' src={require('assets/images/cloud.png')} alt="" />
-               <span className='btn-name' >Find work now</span>
-            </a>
+               <span className='btn-name' >Tìm việc ngay</span>
+            </Link>
             <img className='work-image' src={require('assets/images/work.png')} alt="" />
 
             {/* MORNING SCREEN */}
@@ -57,7 +53,7 @@ export default function HomePage() {
                      }}
                   />
                   <div className='flex center'>
-                     <h1 style={{ textShadow: '-10px 10px 2px pink' }}>Good morning</h1>
+                     <h1 style={{ textShadow: '-10px 10px 2px pink' }}>Chào buổi sáng bạn trẻ</h1>
                   </div>
                </section>
 
@@ -69,19 +65,19 @@ export default function HomePage() {
                   }}
                >
                   <div className="card first-card">
-                     <h2 style={{ color: 'green' }}>Rich Works</h2>
-                     <p>Abundant and Suitable for you</p>
+                     <h2 style={{ color: 'green' }}>Phong phú</h2>
+                     <p>Có thể sẽ rất phù hợp với bạn</p>
                      <img src={require('assets/images/work.png')} alt="" />
                   </div>
                   <div className="card">
                      <img src={require('assets/images/work.png')} alt="" />
-                     <h1>Easily and Quickly</h1>
+                     <h1>Nhanh chóng tiện lợi</h1>
                   </div>
                   <div className="card">
                      <img src={require('assets/images/work.png')} alt="" />
-                     <h1>Join With Us</h1>
+                     <h1>Tham gia cộng đồng nào</h1>
                      {/* <Link className='join-btn' to='login'>Join now</Link> */}
-                     <a className='join-btn' to='login'>Join now</a>
+                     <a className='join-btn' to='login'>Tham gia</a>
                   </div>
                </section>
                <section className='flex ver-center hor-center' style={{
