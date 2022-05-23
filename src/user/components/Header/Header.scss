@@ -1,0 +1,49 @@
+@import "assets/scss/vars";
+
+.app-header {
+   display: flex;
+   align-items: center;
+   padding: 0 $gapCol;
+   height: $headerHei;
+   box-shadow: 0 1px 5px #dadada;
+   position: sticky;
+   top: 0;
+   background-color: #ffffffa7;
+   z-index: 100;
+   backdrop-filter: blur(3px);
+   .logo {
+      font-family: "Dancing Script", cursive;
+      font-size: 50px;
+   }
+   nav {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-left: 10%;
+      .nav-link-wrapper {
+         .nav-link {
+            padding: 5px 0px;
+            border-bottom: 2px solid transparent;
+            transition: 0.25s;
+            &:nth-child(1) {
+               margin-right: 20px;
+            }
+            &:hover {
+               border-bottom: 2px solid rgb(33, 112, 230);
+            }
+         }
+      }
+      .login-link {
+         border-radius: 3px;
+         padding: 5px 10px;
+         transition: 0.1s;
+         color: black;
+         background-color: rgb(206, 227, 247);
+         &:hover {
+            box-shadow: 0 1px 3px rgb(62, 113, 160);
+         }
+      }
+   }
+}

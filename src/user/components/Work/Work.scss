@@ -1,0 +1,86 @@
+@import "assets/scss/vars";
+$avtSize: 40px;
+
+.work-wrapper {
+   cursor: pointer;
+   width: 100%;
+   box-shadow: 0 0 3px gray;
+   border-radius: 5px;
+   padding: 10px 20px;
+   background-color: #eeeeee;
+   position: relative;
+   &:nth-child(odd) {
+      background-color: #e1faff;
+   }
+   .arrow {
+      display: none;
+      content: "";
+      position: absolute;
+      top: calc(50% - 5px);
+      right: -15px;
+      border-left: 15px solid #e0e0e0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+   }
+   .user {
+      .avatar {
+         width: $avtSize;
+         height: $avtSize;
+         margin-right: 10px;
+         border-radius: 50%;
+         box-shadow: 0 0 1px black;
+      }
+   }
+
+   .content {
+      position: relative;
+      border: 1px solid;
+      border-radius: 0 5px 5px 5px;
+      padding: 10px;
+      margin: 15px 15px;
+      background-color: white;
+      .sticky {
+         position: absolute;
+         right: -15px;
+         top: -15px;
+         padding: 0 5px;
+         background-color: white;
+         border: 1px solid;
+         border-radius: 3px;
+         font-size: 17px;
+      }
+   }
+
+   footer {
+      .salary {
+         background-color: #ffff00;
+         padding: 0 7px;
+         font-size: 17px;
+         border-radius: 3px;
+      }
+
+      .amount-progress {
+         // padding: 5px;
+         background-color: lightgray;
+         height: 15px;
+         width: 150px;
+         overflow: hidden;
+         .progress {
+            background-color: $priColor;
+            width: 15%;
+            height: 100%;
+         }
+      }
+
+      .apply-btn {
+         background-color: $priColor;
+         color: white;
+         padding: 7px 30px;
+         border-radius: 5px;
+         display: inline-block;
+         &:hover {
+            background-color: darken($priColor, 10);
+         }
+      }
+   }
+}

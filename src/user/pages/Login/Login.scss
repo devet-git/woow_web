@@ -1,5 +1,7 @@
+@import "assets/scss/vars";
+
 .login-page {
-   height: 100vh;
+   height: $maxHei;
    .col {
       flex: 0 0 50%;
       height: 100%;
@@ -11,7 +13,7 @@
       background-color: #ece9fb;
       width: 60%;
       padding: 30px 40px;
-      box-shadow: 0 0 5px 3px #9e92ed;
+      box-shadow: 0 2px 7px #7663f1;
       h2 {
          text-align: center;
          margin: 10px;
@@ -24,21 +26,19 @@
          margin-bottom: 10px;
          .--input-wrapper {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center;
             margin: 10px 0px;
             width: 100%;
             input {
                border: 1px solid #9e92ed;
                outline: none;
                border-radius: 3px;
-               width: 100%;
+               width: 90%;
                min-width: 145px;
                padding: 5px 3px;
                color: #3721c4;
                font-family: inherit;
-               font-size: 1em;
-               margin-left: 5px;
+               font-size: 17px;
             }
          }
          .forgot-pw {
@@ -56,6 +56,10 @@
             color: white;
             border-radius: 3px;
             font-family: inherit;
+            &:hover {
+               transition: 0.1s;
+               box-shadow: 0 1px 3px #1b1b1e;
+            }
          }
       }
       hr {
@@ -67,6 +71,7 @@
       .social-login {
          display: flex;
          justify-content: center;
+         align-items: center;
          width: 90%;
          min-width: 190px;
          background-color: #9e92ed;
@@ -74,6 +79,11 @@
          padding: 5px 0;
          border-radius: 5px;
          color: white;
+         font-size: 17px;
+         &:hover {
+            transition: 0.1s;
+            box-shadow: 0 1px 3px #1b1b1e;
+         }
          svg {
             font-size: 20px;
             margin-right: 3px;
@@ -97,19 +107,10 @@
 
    .right {
       text-align: center;
-      a {
-         font-family: "Dancing Script", cursive;
-         display: block;
-         font-size: 40px;
-         margin-top: 30px;
-      }
+      padding-top: 3%;
       .login-image {
-         width: 90%;
+         width: 75%;
          object-fit: cover;
-      }
-      .logo {
-         width: 100px;
-         margin-top: 15px;
       }
    }
 }
