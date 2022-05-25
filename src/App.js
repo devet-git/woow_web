@@ -1,4 +1,5 @@
 import LoginPage from 'user/pages/Login/Login'
+import RegisterPage from 'user/pages/Register/Register'
 import HomePage from 'user/pages/Home/Home'
 import WorkPage from 'user/pages/Work/Work'
 import WorkPostingPage from 'user/pages/Work/Post/WorkPost'
@@ -19,6 +20,7 @@ function App() {
          <Route path='/' element={<UserLayout />} >
             <Route path='/tim-viec' element={<WorkPage />} />
             <Route path='/dang-viec' element={<WorkPostingPage />} />
+            <Route path='/dang-ky' element={<RegisterPage />} />
             <Route path='/dang-nhap' element={<LoginPage />} />
             <Route path='/tai-khoan' element={<AccountManagementPage />} />
             <Route path='*' element={<NotFoundPage />} />
