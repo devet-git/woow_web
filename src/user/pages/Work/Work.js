@@ -9,10 +9,8 @@ import { BsCalendar2Date } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { IconButton, Tooltip } from '@chakra-ui/react'
 import Loading from 'user/components/Loading/Loading'
-import localData from 'user/utils/localData'
-// import fetchApi from 'user/utils/fetchData'
-import axios from 'axios'
-
+// import localData from 'user/utils/localData'
+import workApi from 'api/workApi'
 
 export default function WorkPage() {
    const [works, setWorks] = useState([])
@@ -54,30 +52,13 @@ export default function WorkPage() {
       )
    }
 
-
    useEffect(() => {
-      // if (localData.get('works')) {
-      //    // setWorks(localData.get('works'))
-      //    localData.remove('works')
-      // } else {
-      // setIsLoading(true)
-      console.log('duma')
-      axios.get('http://localhost:8000/api/v1/works')
-         .then(response => {
-            console.log(response)
-            setWorks(response.data.data)
-            // setIsLoading(false)
-            // localData.set('works', response.data)
-         })
-         .catch((error) => {
-            console.log(error)
-         })
-      // }
-      // fetchApi('/works', (response) => {
-      //    setWorks(response.data)
-      //    setIsLoading(false)
-      //    localData.set('works', response.data)
-      // })
+      setIsLoading(true)
+      workApi.getAll(res => {
+         setWorks(res.data)
+         setIsLoading(false)
+      })
+
    }, [])
 
    useEffect(() => {
