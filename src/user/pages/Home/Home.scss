@@ -26,9 +26,12 @@
          }
          nav a {
             margin-left: 20px;
-            font-size: 1.5em;
+            font-size: 21px;
+            padding: 5px 10px;
+            border: 1px solid black;
+            transition: 0.1s;
             &:hover {
-               text-decoration: underline;
+               box-shadow: 0 1px 5px black;
             }
          }
       }
@@ -41,11 +44,11 @@
          background-size: contain;
          background-repeat: no-repeat;
          font-size: 2.5vw;
-         transition: color 0.35s;
+         transition: color 0.3s;
          width: 200px;
          animation: fly 3s ease-in-out infinite;
          &:hover {
-            color: #ed92a1;
+            color: rgb(247, 126, 171);
          }
          .btn-name {
             position: absolute;
@@ -77,9 +80,12 @@
             padding: 20px;
             .join-btn {
                border: 1px solid;
-               padding: 3px;
-               margin-top: 5px;
+               padding: 1px 4px;
                display: inline-block;
+               transition: 0.1s;
+               &:hover {
+                  box-shadow: 0 1px 3px black;
+               }
             }
          }
       }

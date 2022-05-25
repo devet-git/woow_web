@@ -1,5 +1,7 @@
+@import "assets/scss/vars";
+
 .work-posting-page {
-   height: 100vh;
+   height: $maxHei;
    overflow: hidden;
    .nav-bar {
       align-items: center;
@@ -33,7 +35,6 @@
       background-color: lighten($color: #c7e3ee, $amount: 4);
       width: 100%;
       padding: 30px 120px;
-      border-right: 2px solid #368db0;
       h2 {
          text-align: center;
          margin: 10px;
@@ -63,9 +64,12 @@
                font-size: 1em;
                margin-left: 5px;
             }
-            .work-name,
-            .content {
+            .work-name {
                width: 85%;
+            }
+            .content {
+               width: 556px !important;
+               height: 120px !important;
             }
             .time,
             .amount {
@@ -76,9 +80,6 @@
             }
             .address {
                width: 53%;
-            }
-            .content {
-               height: 120px;
             }
          }
          .confirm-btn {
@@ -92,6 +93,10 @@
             border-radius: 3px;
             font-family: inherit;
             margin-top: 20px;
+            &:hover {
+               box-shadow: 0 1px 3px rgb(62, 60, 60);
+               transition: 0.1s;
+            }
          }
       }
    }
@@ -99,19 +104,24 @@
    .right {
       background-color: #d0e7fb;
       width: 30%;
-      height: 100vh;
+      height: $maxHei;
       overflow-y: scroll;
-      padding-bottom: 90px;
+      padding-bottom: 20px;
+      position: relative;
+      box-shadow: 0 1px 5px #368db0;
       .title {
          padding: 40px 0px 10px 0px;
          text-align: center;
+         position: sticky;
+         top: 0;
+         background-color: #d0e7fb;
       }
       .posted {
-         border: 2px solid #368db0;
-         margin: 10px 15px;
+         margin: 15px;
          border-radius: 5px;
          padding: 10px;
          background-color: white;
+         box-shadow: 0 1px 5px #368db0;
          h4 {
             padding: 3px 0px 10px 0px;
          }

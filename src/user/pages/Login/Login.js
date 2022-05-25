@@ -8,33 +8,38 @@ export default function LoginPage() {
       <div className='login-page flex center'>
          <section className='left col flex center'>
             <main className='--card flex flex-col ver-center'>
-               <h2>LOGIN</h2>
+               <h2>ĐĂNG NHẬP</h2>
                <form className='--form flex flex-col ver-center' action=''>
                   <div className='--input-wrapper'>
-                     <label htmlFor="username">Username</label>
-                     <input type='text' id='username' autoFocus />
+                     {/* <label htmlFor="username">Username</label> */}
+                     <input type='text' id='username' placeholder='Tên đăng nhập' autoFocus />
                   </div>
                   <div className='--input-wrapper'>
-                     <label htmlFor="password">Password</label>
-                     <input type='password' id='password' />
+                     {/* <label htmlFor="password">Mật khẩu</label> */}
+                     <input type='password' id='password' placeholder='Mật khẩu' />
                   </div>
                   <div className='flex sp-between ver-center w-200'>
-                     <button className='submit-btn'>Login</button>
-                     <a className='forgot-pw' href='#!'>Forgot Password ?</a>
+                     <button
+                        className='submit-btn'
+                        onClick={(e) => {
+                           e.preventDefault()
+                        }}
+                     >
+                        Đăng nhập
+                     </button>
+                     <a className='forgot-pw' href='#!'>Quên mật khẩu ?</a>
                   </div>
                </form>
                <hr />
                <footer>
-                  <a href='#!' className='gg-login social-login' ><AiOutlineGoogle /> Continue with Google</a>
-                  <a href='#!' className='fb-login social-login'> <GrFacebookOption /> Continue with Facebook</a>
-                  <p>Don&apos;t have an account ? <a href='#!' style={{ textDecoration: 'underline' }}>Register</a></p>
+                  <a href='#!' className='gg-login social-login' ><AiOutlineGoogle />Đăng nhập với Google</a>
+                  <a href='#!' className='fb-login social-login'> <GrFacebookOption />Đăng nhập với Facebook</a>
+                  <p>Bạn chưa có tài khoản? <a href='#!' style={{ textDecoration: 'underline' }}>Đăng ký ngay</a></p>
                </footer>
             </main>
          </section>
 
          <section className='right col'>
-            {/* <Link to='/'><Logo /></Link> */}
-            <img className='logo' src={require('assets/images/logo.png')} />
             <img className='login-image' src={require('assets/images/login.jpg')} alt="loginImage" />
          </section>
       </div>

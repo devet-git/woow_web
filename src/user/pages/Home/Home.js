@@ -2,13 +2,12 @@ import './Home.scss'
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 
+
 const Header = () => (
    <header className='flex sp-between'>
-      <div className='logo'>
-         Woow
-      </div>
+      <div className='logo'> Woow </div>
       <nav className='nav ver-center flex sp-evenly'>
-         {/* <Link to='/login'>Login</Link> */}
+         <Link to='/dang-nhap'>Đăng nhập</Link>
       </nav>
    </header>
 )
@@ -76,8 +75,7 @@ export default function HomePage() {
                   <div className="card">
                      <img src={require('assets/images/work.png')} alt="" />
                      <h1>Tham gia cộng đồng nào</h1>
-                     {/* <Link className='join-btn' to='login'>Join now</Link> */}
-                     <a className='join-btn' to='login'>Tham gia</a>
+                     <Link className='join-btn' to='dang-nhap'>Tham gia</Link>
                   </div>
                </section>
                <section className='flex ver-center hor-center' style={{
@@ -98,11 +96,13 @@ export default function HomePage() {
                   >
                      <h1 style={{
                         width: 'min-content',
-                        lineHeight: '1.5em'
+                        lineHeight: '1.5em',
+                        textAlign: 'center',
+                        paddingRight: '7px'
                      }}
                      >
-                        Show your CV for employer</h1>
-                     <img src={require('assets/images/cv.png')} alt='AHIHI'
+                        Dễ dàng tuyển dụng nhân sự</h1>
+                     <img src={require('assets/images/recruit.jpg')} alt='AHIHI'
                         style={{
                            width: '300px',
                            borderRadius: '5px',

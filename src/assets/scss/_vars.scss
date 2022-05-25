@@ -1,6 +1,7 @@
 $gap: 10px;
 $gapCol: 20px;
 $headerHei: 55px;
+$maxHei: calc(100vh - $headerHei);
 // TODO: colors
 $priColor: #5e9a8e;
 $secColor: red;
