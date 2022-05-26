@@ -1,22 +1,31 @@
-import './Work.scss'
-import Work from 'user/components/Work/Work'
-import { useEffect, useState } from 'react'
+// Icons
 import { GoRequestChanges } from 'react-icons/go'
 import { AiOutlinePhone, AiOutlineDollarCircle } from 'react-icons/ai'
 import { BiTimeFive, BiMapPin, BiShareAlt, BiLink } from 'react-icons/bi'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
 import { BsCalendar2Date } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+// Chakra UI
 import { IconButton, Tooltip } from '@chakra-ui/react'
+// React
+import { useEffect, useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
+
+// Custom
 import Loading from 'user/components/Loading/Loading'
-// import localData from 'user/utils/localData'
-import workApi from 'api/workApi'
+import workService from 'api/workService'
+import './Work.scss'
+import Work from 'user/components/Work/Work'
+import { GlobalState } from 'App'
 
 export default function WorkPage() {
    const [works, setWorks] = useState([])
    const [isLoading, setIsLoading] = useState(false)
    const [selectedWorkID, setSelectedWorkID] = useState(1)
    const [workDetails, setWorkDetails] = useState({})
+   // const [currentUser, setCurrentUser] = useState({})
+   // const redirector = useNavigate()
+
+   // let { currentUser } = useContext(GlobalState)
 
    const WorkDetails = () => {
       return (
@@ -45,7 +54,7 @@ export default function WorkPage() {
                   </Tooltip>
                </div>
                <div className='rotate-btn'>
-                  <Link to='#!' className='apply-link'>Apply</Link>
+                  <Link to='#!' className='apply-link'>Nhận việc này</Link>
                </div>
             </footer>
          </section>
@@ -54,11 +63,10 @@ export default function WorkPage() {
 
    useEffect(() => {
       setIsLoading(true)
-      workApi.getAll(res => {
+      workService.getAll(res => {
          setWorks(res.data)
          setIsLoading(false)
       })
-
    }, [])
 
    useEffect(() => {

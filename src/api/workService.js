@@ -1,8 +1,7 @@
 import api from './apiConfig'
 
-const workApi = {
+const workService = {
    async getAll(callback) {
-
       try {
          let resData = await api.get('/works')
          return callback(resData.data)
@@ -12,4 +11,4 @@ const workApi = {
       }
    }
 }
-export default workApi
+export default workService
