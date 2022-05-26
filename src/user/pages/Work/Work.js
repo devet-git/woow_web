@@ -6,17 +6,19 @@ import { AiOutlinePhone, AiOutlineDollarCircle } from 'react-icons/ai'
 import { BiTimeFive, BiMapPin, BiShareAlt, BiLink } from 'react-icons/bi'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
 import { BsCalendar2Date } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IconButton, Tooltip } from '@chakra-ui/react'
 import Loading from 'user/components/Loading/Loading'
 // import localData from 'user/utils/localData'
-import workApi from 'api/workApi'
-
+import workService from 'api/workService'
+import authService from 'api/authService'
 export default function WorkPage() {
    const [works, setWorks] = useState([])
    const [isLoading, setIsLoading] = useState(false)
    const [selectedWorkID, setSelectedWorkID] = useState(1)
    const [workDetails, setWorkDetails] = useState({})
+   const [currentUser, setCurrentUser] = useState({})
+   // const redirector = useNavigate()
 
    const WorkDetails = () => {
       return (
@@ -54,17 +56,26 @@ export default function WorkPage() {
 
    useEffect(() => {
       setIsLoading(true)
-      workApi.getAll(res => {
-         setWorks(res.data)
-         setIsLoading(false)
-      })
-
+      const fdt = async () => {
+         await workService.getAll(res => {
+            setWorks(res.data)
+            setIsLoading(false)
+         })
+      }
+      fdt()
    }, [])
 
    useEffect(() => {
       setWorkDetails(() => works.find(elm => elm.id === selectedWorkID))
    }, [works, selectedWorkID])
 
+   useEffect(() => {
+      authService.getCurrentUser((res) => {
+         if (res.success)
+            setCurrentUser(res.data)
+      })
+      // console.log(currentUser)
+   }, [])
    // useEffect(() => {
    //    window.onbeforeunload = () => {
    //       localData.remove()
