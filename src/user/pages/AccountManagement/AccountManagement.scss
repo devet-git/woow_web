@@ -1,3 +1,4 @@
+@import "assets/scss/responsive";
 .account-management-page {
    margin: 0px 150px;
    padding: 20px 0px;
@@ -29,11 +30,10 @@
    .works-wrapper {
       margin-top: 20px;
       .__col {
-         border: 1px solid #87b8f0;
          border-radius: 5px;
          padding: 10px 20px;
          background-color: #cce1f4;
-         box-shadow: 0 1px 5px #7bb3f4;
+         box-shadow: 0 1px 5px #2e86eb;
          width: 50%;
          h3 {
             text-align: center;
@@ -57,41 +57,99 @@
          margin-bottom: 10px;
       }
       .btn-wrapper {
-         align-items: flex-end;
          justify-content: flex-end;
          button {
             background-color: transparent;
+            padding: 3px 10px;
+            border-bottom: 2px solid #ffffff;
+            &:hover {
+               border-bottom: 2px solid #2e86eb;
+            }
          }
          .more-content {
             padding: 20px;
          }
-         .btn-cancel {
-            padding: 5px 10px;
-            &:hover {
-               box-shadow: 0 1px 5px #7bb3f4;
-            }
+      }
+   }
+}
+@include responsive_992 {
+   .account-management-page {
+      margin: 0px 100px !important;
+   }
+}
+@include responsive_768 {
+   .account-management-page {
+      margin: 0px 50px !important;
+   }
+   .avatar {
+      width: 130px !important;
+      height: 130px !important;
+   }
+   .button-edit {
+      font-size: 17px !important;
+      height: 31px !important;
+   }
+}
+@include responsive_576 {
+   .account-management-page {
+      margin: 0px 50px !important;
+   }
+   .works-wrapper {
+      display: block !important;
+      .__col {
+         width: 100% !important;
+      }
+   }
+   .avatar {
+      width: 130px !important;
+      height: 130px !important;
+   }
+   .button-edit {
+      font-size: 17px !important;
+      height: 31px !important;
+   }
+   .__posted {
+      margin-right: 0px !important;
+   }
+   .__received {
+      margin-left: 0px !important;
+      margin-top: 30px;
+   }
+}
+@include responsive_320 {
+   .account-management-page {
+      margin: 0px 10px !important;
+   }
+   .user-info {
+      display: block !important;
+      .real-name {
+         h2 {
+            font-size: 23px;
+         }
+         p {
+            font-size: 18px;
          }
       }
-      .btn-choose-wrapper {
-         .btn-choose {
-            position: relative;
-         }
-         .edit-del-wrapper {
-            position: absolute;
-            margin-left: 25px;
-            background-color: white;
-            box-shadow: 0 1px 5px #7bb3f4;
-            display: none;
-            .btn-edit,
-            .btn-del {
-               padding: 5px 10px;
-               border-bottom: 1px solid #7bb3f4;
-            }
-         }
-         .show {
-            display: flex;
-            flex-direction: column;
-         }
+      .avatar {
+         width: 100px !important;
+         height: 100px !important;
       }
+   }
+   .works-wrapper {
+      display: block !important;
+      .__col {
+         width: 100% !important;
+      }
+   }
+   .button-edit {
+      font-size: 17px !important;
+      height: 31px !important;
+   }
+   .__posted {
+      margin-right: 0px !important;
+   }
+   .__received {
+      margin-left: 0px !important;
+      margin-top: 30px;
    }
 }

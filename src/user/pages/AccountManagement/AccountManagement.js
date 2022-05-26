@@ -1,6 +1,5 @@
 import './AccountManagement.scss'
 import 'assets/scss/classes.scss'
-import { AiOutlineEllipsis } from 'react-icons/ai'
 import React from 'react'
 import { provinces } from 'user/utils/defaultData'
 import {
@@ -114,14 +113,9 @@ export default function AccountManagementPage() {
                   <p>Lương: 200.000 VND / Ngày</p>
                   <p>Vị trí: Đăk Lăk</p>
                   <p>Số lượng: 10 người</p>
-                  <div className='btn-wrapper flex sp-between'>
-                     <div className='btn-choose-wrapper flex'>
-                        <button className='btn choose' ><AiOutlineEllipsis /></button>
-                        <div className='edit-del-wrapper flex flex-col center' id='drop'>
-                           <button className='btn-edit'>Chỉnh sửa</button>
-                           <button className='btn-del'>Xóa</button>
-                        </div>
-                     </div>
+                  <div className='btn-wrapper flex'>
+                     <button className='btn-edit'>Chỉnh sửa</button>
+                     <button className='btn-del'>Xóa</button>
                   </div>
                </div>
                <div className='__work'>
@@ -131,14 +125,9 @@ export default function AccountManagementPage() {
                   <p>Lương: 200.000 VND / Ngày</p>
                   <p>Vị trí: Đăk Lăk</p>
                   <p>Số lượng: 10 người</p>
-                  <div className='btn-wrapper flex sp-between'>
-                     <div className='btn-choose-wrapper flex'>
-                        <button className='btn choose'><AiOutlineEllipsis /></button>
-                        <div className='edit-del-wrapper flex flex-col center' id='drop'>
-                           <button className='btn-edit'>Chỉnh sửa</button>
-                           <button className='btn-del'>Xóa</button>
-                        </div>
-                     </div>
+                  <div className='btn-wrapper flex'>
+                     <button >Chỉnh sửa</button>
+                     <button >Xóa</button>
                   </div>
                </div>
             </div>
@@ -152,7 +141,7 @@ export default function AccountManagementPage() {
                   <p>Vị trí: Đăk Lăk</p>
                   <p>Số lượng: 10 người</p>
                   <div className='btn-wrapper flex sp-between'>
-                     <button className='btn-cancel'>Hủy</button>
+                     <button>Hủy</button>
                   </div>
                </div>
             </div>

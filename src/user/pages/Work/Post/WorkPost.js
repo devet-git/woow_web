@@ -7,27 +7,27 @@ export default function WorkPostingPage() {
 
    return (
       <div className='work-posting-page'>
-         <div className='flex sp-between'>
+         <div className='flex sp-between edit-bl'>
             <section className='left'>
                <main className='--card flex flex-col ver-center'>
                   <h2>TUYỂN DỤNG</h2>
                   <form className='--form flex flex-col ver-center' action=''>
-                     <div className='--input-wrapper'>
+                     <div className='--input-wrapper res-320'>
                         <label htmlFor="workName">Tên công việc: </label>
                         <input className='work-name' type='text' id='workName' autoFocus />
                      </div>
-                     <div className='--input-wrapper'>
+                     <div className='--input-wrapper res-320'>
                         <label>Thời gian: </label>
                         <div>
-                           <label htmlFor='startTime'>Bắt đầu: </label>
+                           <label htmlFor='startTime' className='time-label'>Bắt đầu: </label>
                            <input className='time' type='date' id='startTime' />
                         </div>
                         <div>
-                           <label htmlFor='endTime'>Kết thúc: </label>
+                           <label htmlFor='endTime' className='time-label'>Kết thúc: </label>
                            <input className='time' type='date' id='endTime' />
                         </div>
                      </div>
-                     <div className='--input-wrapper'>
+                     <div className='--input-wrapper res-320'>
                         <label htmlFor="wage">Lương: </label>
                         <input className='wage' type='text' id='wage' autoFocus />
                         <div>
@@ -35,7 +35,7 @@ export default function WorkPostingPage() {
                            <input className='amount' type='number' id='amount' autoFocus />
                         </div>
                      </div>
-                     <div className='--input-wrapper'>
+                     <div className='--input-wrapper res-320'>
                         <label>Vị trí: </label>
                         <select name='provinces'>
                            {
@@ -46,7 +46,7 @@ export default function WorkPostingPage() {
                         </select>
                         <input className='address' type='text' placeholder='Địa chỉ cụ thể' />
                      </div>
-                     <div className='--input-wrapper'>
+                     <div className='--input-wrapper res-320'>
                         <label htmlFor='content'>Nội dung: </label>
                         <textarea className='content' name='content'></textarea>
                      </div>

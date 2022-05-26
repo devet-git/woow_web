@@ -1,4 +1,5 @@
 @import "assets/scss/vars";
+@import "assets/scss/responsive";
 
 .app-header {
    display: flex;
@@ -45,5 +46,22 @@
             box-shadow: 0 1px 3px rgb(62, 113, 160);
          }
       }
+   }
+}
+@include responsive_320 {
+   .app-header {
+      padding: 10px;
+   }
+   .logo {
+      font-size: 40px !important;
+   }
+   .login-link {
+      padding: 2px 5px !important;
+   }
+   nav {
+      margin-left: 3% !important;
+   }
+   .nav-link {
+      margin-right: 7px !important;
    }
 }

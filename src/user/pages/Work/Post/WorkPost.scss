@@ -1,56 +1,38 @@
 @import "assets/scss/vars";
+@import "assets/scss/responsive";
 
 .work-posting-page {
-   height: $maxHei;
-   overflow: hidden;
-   .nav-bar {
-      align-items: center;
-      box-shadow: 0 1px 5px #dadada;
-      padding: 5px 20px;
-      position: sticky;
-      top: 0;
-      background-color: #ffffffa7;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-      .logo {
-         width: 100px;
-      }
-      .navigation {
-         a {
-            padding: 5px 10px;
-         }
-      }
-      .account {
-         padding: 7px 13px;
-         background-color: #7cafa5;
-         border-radius: 5px;
-         color: white;
-         cursor: pointer;
-      }
-   }
+   // height: $maxHei;
+   // overflow: hidden;
    .left {
       width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
    .--card {
       background-color: lighten($color: #c7e3ee, $amount: 4);
-      width: 100%;
-      padding: 30px 120px;
+      width: 90%;
+      padding: 30px 100px;
+      box-shadow: 0 1px 5px #2c92ba;
+      border-radius: 5px;
       h2 {
          text-align: center;
-         margin: 10px;
       }
       .--form {
          width: 100%;
          display: flex;
          flex-direction: column;
          justify-content: center;
-         margin-bottom: 10px;
          .--input-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 10px 0px;
             width: 100%;
+            .time-label {
+               font-size: 17px;
+            }
             input,
             select,
             textarea {
@@ -68,8 +50,8 @@
                width: 85%;
             }
             .content {
-               width: 556px !important;
                height: 120px !important;
+               width: 85%;
             }
             .time,
             .amount {
@@ -110,7 +92,7 @@
       position: relative;
       box-shadow: 0 1px 5px #368db0;
       .title {
-         padding: 40px 0px 10px 0px;
+         padding: 20px 0px 10px 0px;
          text-align: center;
          position: sticky;
          top: 0;
@@ -129,5 +111,145 @@
             font-size: 16px;
          }
       }
+   }
+}
+@include responsive_1200 {
+   .time,
+   .amount {
+      width: 175px !important;
+   }
+   .address {
+      width: 51% !important;
+   }
+}
+@include responsive_1024 {
+   .--card {
+      padding: 30px 60px !important;
+   }
+   .time,
+   .amount {
+      width: 170px !important;
+   }
+   .address {
+      width: 50% !important;
+   }
+}
+@include responsive_992 {
+   .--card {
+      padding: 30px 60px !important;
+   }
+   .time,
+   .amount {
+      width: 160px !important;
+   }
+   .address {
+      width: 50% !important;
+   }
+}
+@include responsive_768 {
+   .edit-bl {
+      display: block !important;
+   }
+   .--card {
+      width: 100% !important;
+      padding: 30px 60px !important;
+      .--form {
+         width: 90% !important;
+         .--input-wrapper {
+            width: 100% !important;
+         }
+      }
+   }
+   .time,
+   .amount {
+      width: 130px !important;
+   }
+   .address {
+      width: 47% !important;
+   }
+   .work-posting-page {
+      overflow: auto;
+   }
+   .left {
+      width: 100% !important;
+   }
+   .right {
+      display: none;
+   }
+}
+@include responsive_576 {
+   .--card {
+      width: 95% !important;
+      padding: 20px 30px !important;
+      .--form {
+         width: 100% !important;
+         .--input-wrapper {
+            width: 100% !important;
+         }
+      }
+   }
+   .time,
+   .amount {
+      width: 140px !important;
+   }
+   .wage {
+      width: 36% !important;
+   }
+   .address {
+      width: 47% !important;
+   }
+   .left {
+      width: 100% !important;
+   }
+   .right {
+      display: none;
+   }
+}
+@include responsive_320 {
+   .edit-bl {
+      display: block !important;
+   }
+   .--card {
+      width: 100% !important;
+      padding: 30px 20px !important;
+      .--form {
+         width: 90% !important;
+         .--input-wrapper {
+            width: 100% !important;
+         }
+      }
+   }
+   .res-320 {
+      display: block !important;
+      input,
+      select,
+      textarea {
+         width: 100% !important;
+      }
+      .time-label {
+         font-size: 16px;
+      }
+      select {
+         margin-bottom: 10px;
+      }
+   }
+   .confirm-btn {
+      width: 80px !important;
+   }
+   .time,
+   .amount {
+      width: 100px !important;
+   }
+   .address {
+      width: 50% !important;
+   }
+   .work-posting-page {
+      overflow: auto;
+   }
+   .left {
+      width: 100% !important;
+   }
+   .right {
+      display: none;
    }
 }

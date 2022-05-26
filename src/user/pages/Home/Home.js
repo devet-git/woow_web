@@ -66,14 +66,14 @@ export default function HomePage() {
                   <div className="card first-card">
                      <h2 style={{ color: 'green' }}>Phong phú</h2>
                      <p>Có thể sẽ rất phù hợp với bạn</p>
-                     <img src={require('assets/images/work.png')} alt="" />
+                     <img src={require('assets/images/more-work.jpg')} alt="" />
                   </div>
                   <div className="card">
-                     <img src={require('assets/images/work.png')} alt="" />
+                     <img src={require('assets/images/fast-convenient.jpg')} alt="" />
                      <h1>Nhanh chóng tiện lợi</h1>
                   </div>
                   <div className="card">
-                     <img src={require('assets/images/work.png')} alt="" />
+                     <img src={require('assets/images/join.jpg')} alt="" />
                      <h1>Tham gia cộng đồng nào</h1>
                      <Link className='join-btn' to='dang-nhap'>Tham gia</Link>
                   </div>
@@ -82,13 +82,13 @@ export default function HomePage() {
                   flex: '0 0 100%',
                   position: 'relative'
                }}>
-                  <img src={require('assets/images/moon.png')} alt='moon' style={{
+                  <img className='moon-image' src={require('assets/images/moon.png')} alt='moon' style={{
                      position: 'absolute',
                      bottom: `${scrollTop / 5.5}px`,
                      left: `${scrollTop / 25}px`,
-                     width: '100px'
+                     width: '80px'
                   }} />
-                  <div className='flex ver-center gap-10' style={{
+                  <div className='flex ver-center gap-10 poster' style={{
                      backgroundColor: 'white',
                      padding: '30px',
                      borderRadius: '10px'
