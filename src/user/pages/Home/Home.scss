@@ -1,8 +1,8 @@
 @import "assets/scss/vars";
+@import "assets/scss/responsive";
 
 .home-page {
    background-image: linear-gradient(-200deg, #c6e2fa, #fff8e6, #ffe9b3, #ffdb80, #ffcc4d, #c5bef4, #9e92ed, #7766e5);
-
    .sticky-wrapper {
       position: sticky;
       top: 0;
@@ -26,9 +26,12 @@
          }
          nav a {
             margin-left: 20px;
-            font-size: 1.5em;
+            font-size: 21px;
+            padding: 5px 10px;
+            border: 1px solid black;
+            transition: 0.1s;
             &:hover {
-               text-decoration: underline;
+               box-shadow: 0 1px 5px black;
             }
          }
       }
@@ -41,11 +44,11 @@
          background-size: contain;
          background-repeat: no-repeat;
          font-size: 2.5vw;
-         transition: color 0.35s;
+         transition: color 0.3s;
          width: 200px;
          animation: fly 3s ease-in-out infinite;
          &:hover {
-            color: #ed92a1;
+            color: rgb(247, 126, 171);
          }
          .btn-name {
             position: absolute;
@@ -68,20 +71,177 @@
       &.screen-night {
          gap: 30px;
          .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: 270px;
             height: 350px;
             border-radius: 7px;
             background-color: white;
-            // background-image: url("~assets/images/mountain.jpg");
-            // margin: 10px;
             padding: 20px;
             .join-btn {
                border: 1px solid;
-               padding: 3px;
-               margin-top: 5px;
+               padding: 1px 4px;
                display: inline-block;
+               transition: 0.1s;
+               &:hover {
+                  box-shadow: 0 1px 3px black;
+               }
             }
          }
+      }
+   }
+}
+@include responsive_992 {
+   .screen-night {
+      gap: 20px !important;
+      .card {
+         width: 250px !important;
+         height: 330px !important;
+         h1 {
+            font-size: 25px;
+         }
+      }
+   }
+   .cloud-image {
+      width: 150px;
+   }
+}
+@include responsive_768 {
+   .logo {
+      font-size: 40px !important;
+   }
+   nav a {
+      font-size: 17px !important;
+   }
+   .moon-image {
+      width: 55px !important;
+   }
+   .screen-night {
+      gap: 12px !important;
+      .card {
+         width: 200px !important;
+         height: 280px !important;
+         h1 {
+            font-size: 20px;
+         }
+      }
+      .first-card {
+         h2 {
+            font-size: 25px;
+         }
+         p {
+            font-size: 17px;
+         }
+      }
+   }
+   .cloud-image {
+      width: 120px;
+   }
+   .poster {
+      h1 {
+         font-size: 25px;
+      }
+      img {
+         width: 270px !important;
+      }
+   }
+}
+@include responsive_576 {
+   .logo {
+      font-size: 40px !important;
+   }
+   nav a {
+      font-size: 17px !important;
+   }
+   .moon-image {
+      width: 40px !important;
+   }
+   .screen-night {
+      gap: 10px !important;
+      .card {
+         width: 150px !important;
+         height: 235px !important;
+         h1 {
+            font-size: 18px;
+         }
+         .join-btn {
+            font-size: 15px;
+         }
+      }
+      .first-card {
+         h2 {
+            font-size: 22px;
+         }
+         p {
+            font-size: 17px;
+         }
+      }
+   }
+   .cloud-image {
+      width: 120px;
+   }
+   .btn-name {
+      font-size: 18px;
+   }
+   .poster {
+      h1 {
+         font-size: 22px;
+      }
+      img {
+         width: 250px !important;
+      }
+   }
+}
+@include responsive_320 {
+   .logo {
+      font-size: 40px !important;
+   }
+   .work-image {
+      bottom: -20px !important;
+      width: 60% !important;
+   }
+   nav a {
+      font-size: 17px !important;
+   }
+   .moon-image {
+      width: 40px !important;
+   }
+   .screen-night {
+      gap: 10px !important;
+      .card {
+         width: 150px !important;
+         height: 235px !important;
+         h1 {
+            font-size: 18px;
+         }
+         .join-btn {
+            font-size: 15px;
+         }
+      }
+      .first-card {
+         h2 {
+            font-size: 22px;
+         }
+         p {
+            font-size: 17px;
+         }
+      }
+   }
+   .cloud-image {
+      width: 120px;
+   }
+   .btn-name {
+      font-size: 18px;
+   }
+   .poster {
+      margin-left: 150px;
+      h1 {
+         font-size: 22px;
+      }
+      img {
+         width: 200px !important;
       }
    }
 }

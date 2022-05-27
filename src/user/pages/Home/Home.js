@@ -1,14 +1,13 @@
 import './Home.scss'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
+
 
 const Header = () => (
    <header className='flex sp-between'>
-      <div className='logo'>
-         Woow
-      </div>
+      <div className='logo'> Woow </div>
       <nav className='nav ver-center flex sp-evenly'>
-         {/* <Link to='/login'>Login</Link> */}
+         <Link to='/dang-nhap'>Đăng nhập</Link>
       </nav>
    </header>
 )
@@ -35,14 +34,10 @@ export default function HomePage() {
       <div className='home-page' style={{ height: screenWidth + 'px' }}>
          <div className="sticky-wrapper">
             <Header />
-            {/* <Link to='/works' className='btn-link flex center'>
-            <img className='cloud-image' src={require('assets/images/cloud.png')} alt="" />
-            <span className='btn-name' >Find work now</span>
-            </Link> */}
-            <a to='/works' className='btn-link flex center'>
+            <Link to='/tim-viec' className='btn-link flex center'>
                <img className='cloud-image' src={require('assets/images/cloud.png')} alt="" />
-               <span className='btn-name' >Find work now</span>
-            </a>
+               <span className='btn-name' >Tìm việc ngay</span>
+            </Link>
             <img className='work-image' src={require('assets/images/work.png')} alt="" />
 
             {/* MORNING SCREEN */}
@@ -57,7 +52,7 @@ export default function HomePage() {
                      }}
                   />
                   <div className='flex center'>
-                     <h1 style={{ textShadow: '-10px 10px 2px pink' }}>Good morning</h1>
+                     <h1 style={{ textShadow: '-10px 10px 2px pink' }}>Chào buổi sáng bạn trẻ</h1>
                   </div>
                </section>
 
@@ -69,32 +64,31 @@ export default function HomePage() {
                   }}
                >
                   <div className="card first-card">
-                     <h2 style={{ color: 'green' }}>Rich Works</h2>
-                     <p>Abundant and Suitable for you</p>
-                     <img src={require('assets/images/work.png')} alt="" />
+                     <h2 style={{ color: 'green' }}>Phong phú</h2>
+                     <p>Có thể sẽ rất phù hợp với bạn</p>
+                     <img src={require('assets/images/more-work.jpg')} alt="" />
                   </div>
                   <div className="card">
-                     <img src={require('assets/images/work.png')} alt="" />
-                     <h1>Easily and Quickly</h1>
+                     <img src={require('assets/images/fast-convenient.jpg')} alt="" />
+                     <h1>Nhanh chóng tiện lợi</h1>
                   </div>
                   <div className="card">
-                     <img src={require('assets/images/work.png')} alt="" />
-                     <h1>Join With Us</h1>
-                     {/* <Link className='join-btn' to='login'>Join now</Link> */}
-                     <a className='join-btn' to='login'>Join now</a>
+                     <img src={require('assets/images/join.jpg')} alt="" />
+                     <h1>Tham gia cộng đồng nào</h1>
+                     <Link className='join-btn' to='dang-nhap'>Tham gia</Link>
                   </div>
                </section>
                <section className='flex ver-center hor-center' style={{
                   flex: '0 0 100%',
                   position: 'relative'
                }}>
-                  <img src={require('assets/images/moon.png')} alt='moon' style={{
+                  <img className='moon-image' src={require('assets/images/moon.png')} alt='moon' style={{
                      position: 'absolute',
                      bottom: `${scrollTop / 5.5}px`,
                      left: `${scrollTop / 25}px`,
-                     width: '100px'
+                     width: '80px'
                   }} />
-                  <div className='flex ver-center gap-10' style={{
+                  <div className='flex ver-center gap-10 poster' style={{
                      backgroundColor: 'white',
                      padding: '30px',
                      borderRadius: '10px'
@@ -102,11 +96,13 @@ export default function HomePage() {
                   >
                      <h1 style={{
                         width: 'min-content',
-                        lineHeight: '1.5em'
+                        lineHeight: '1.5em',
+                        textAlign: 'center',
+                        paddingRight: '7px'
                      }}
                      >
-                        Show your CV for employer</h1>
-                     <img src={require('assets/images/cv.png')} alt='AHIHI'
+                        Dễ dàng tuyển dụng nhân sự</h1>
+                     <img src={require('assets/images/recruit.jpg')} alt='AHIHI'
                         style={{
                            width: '300px',
                            borderRadius: '5px',

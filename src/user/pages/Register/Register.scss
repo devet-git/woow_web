@@ -1,5 +1,4 @@
 @import "assets/scss/vars";
-@import "assets/scss/responsive";
 
 .login-page {
    height: $maxHei;
@@ -109,55 +108,9 @@
    .right {
       text-align: center;
       padding-top: 3%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       .login-image {
          width: 75%;
          object-fit: cover;
       }
-   }
-}
-@include responsive_768 {
-   .left {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      .--card {
-         width: 80% !important;
-         padding: 30px 40px !important;
-      }
-   }
-}
-@include responsive_576 {
-   .login-page {
-      display: block !important;
-      .left {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-      }
-      .--card {
-         width: 55% !important;
-      }
-   }
-   .right {
-      display: none !important;
-   }
-}
-@include responsive_320 {
-   .login-page {
-      display: block !important;
-      .left {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-      }
-      .--card {
-         width: 80% !important;
-      }
-   }
-   .right {
-      display: none !important;
    }
 }
