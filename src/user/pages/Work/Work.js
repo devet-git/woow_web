@@ -1,24 +1,32 @@
-import './Work.scss'
-import Work from 'user/components/Work/Work'
-import { useEffect, useState } from 'react'
+// Icons
 import { GoRequestChanges } from 'react-icons/go'
 import { AiOutlinePhone, AiOutlineDollarCircle } from 'react-icons/ai'
 import { BiTimeFive, BiMapPin, BiShareAlt, BiLink } from 'react-icons/bi'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
 import { BsCalendar2Date } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+// Chakra UI
 import { IconButton, Tooltip } from '@chakra-ui/react'
-import Loading from 'user/components/Loading/Loading'
-import localData from 'user/utils/localData'
-// import fetchApi from 'user/utils/fetchData'
-import axios from 'axios'
+// React
+import { useEffect, useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 
+// Custom
+import Loading from 'user/components/Loading/Loading'
+import workService from 'services/workService'
+import './Work.scss'
+import Work from 'user/components/Work/Work'
+import { GlobalState } from 'App'
+import authService from 'services/authService'
 
 export default function WorkPage() {
    const [works, setWorks] = useState([])
    const [isLoading, setIsLoading] = useState(false)
    const [selectedWorkID, setSelectedWorkID] = useState(1)
    const [workDetails, setWorkDetails] = useState({})
+   // const [currentUser, setCurrentUser] = useState({})
+   // const redirector = useNavigate()
+
+   let { setCurrentUser } = useContext(GlobalState)
 
    const WorkDetails = () => {
       return (
@@ -47,42 +55,25 @@ export default function WorkPage() {
                   </Tooltip>
                </div>
                <div className='rotate-btn'>
-                  <Link to='#!' className='apply-link'>Apply</Link>
+                  <Link to='#!' className='apply-link'>Nhận việc này</Link>
                </div>
             </footer>
          </section>
       )
    }
 
-
    useEffect(() => {
-      // if (localData.get('works')) {
-      //    // setWorks(localData.get('works'))
-      //    localData.remove('works')
-      // } else {
-      // setIsLoading(true)
-      console.log('duma')
-      axios.get('http://localhost:8000/api/v1/works')
-         .then(response => {
-            console.log(response)
-            setWorks(response.data.data)
-            // setIsLoading(false)
-            // localData.set('works', response.data)
-         })
-         .catch((error) => {
-            console.log(error)
-         })
-      // }
-      // fetchApi('/works', (response) => {
-      //    setWorks(response.data)
-      //    setIsLoading(false)
-      //    localData.set('works', response.data)
-      // })
+      setIsLoading(true)
+      workService.getAll(res => {
+         setWorks(res.data)
+         setIsLoading(false)
+      })
    }, [])
 
    useEffect(() => {
       setWorkDetails(() => works.find(elm => elm.id === selectedWorkID))
    }, [works, selectedWorkID])
+
 
    // useEffect(() => {
    //    window.onbeforeunload = () => {

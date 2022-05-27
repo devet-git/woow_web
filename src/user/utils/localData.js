@@ -21,7 +21,7 @@ const localData = {
     * @param {string} name
     */
    remove: (name = null) => {
-      name ? localStorage.removeItem('name') : localStorage.clear()
+      name ? localStorage.removeItem(name) : localStorage.clear()
    }
 }
 export default localData
