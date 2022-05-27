@@ -2,34 +2,26 @@ import './Login.scss'
 import { AiOutlineGoogle } from 'react-icons/ai'
 // import { GrFacebookOption } from 'react-icons/gr'
 import { Link, useNavigate } from 'react-router-dom'
-import authService from 'api/authService'
-import { useEffect } from 'react'
+import authService from 'services/authService'
+import { useContext } from 'react'
+import { GlobalState } from 'App'
+
 
 
 export default function LoginPage() {
    let redirector = useNavigate()
-   // let [islogin, setIsLogin] = useState(false)
-
-
+   let { setIsLogin } = useContext(GlobalState)
    const formSubmit = async (e) => {
       e.preventDefault()
       let { username, pw } = e.target.elements
-      // let signInData = { username: username.value, pw: pw.value }
       await authService.signIn(username.value, pw.value, res => {
-         // console.log(res)
+         console.log(res)
          if (res.success) {
+            setIsLogin(true)
             redirector('/tim-viec')
-         } else {
-            redirector('/')
          }
       })
    }
-   useEffect(() => {
-      authService.getCurrentUser((res) => {
-         if (res.success)
-            redirector('/tim-viec')
-      })
-   }, [redirector])
 
    return (
       <div className='login-page flex center'>

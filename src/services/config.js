@@ -1,7 +1,8 @@
 import axios from 'axios'
 import localData from 'user/utils/localData'
 
-let accessToken = localData.get('accessToken')
+let tokens = localData.get('tokens')
+let accessToken = tokens ? tokens.accessToken : null
 const api = axios.create({
    baseURL: 'http://localhost:8000/api/v1',
    headers: {
@@ -11,7 +12,5 @@ const api = axios.create({
       // 'content-type': 'application/x-www-form-urlencoded'
    }
 })
-export const headersAuth = () => {
-   return { 'Authorization': `Bearer${accessToken}` }
-}
+
 export default api

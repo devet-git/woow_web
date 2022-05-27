@@ -1,4 +1,4 @@
-import api from './apiConfig'
+import api from './config'
 
 const workService = {
    async getAll(callback) {

@@ -2,7 +2,7 @@ import './Register.scss'
 import { AiOutlineGoogle } from 'react-icons/ai'
 // import { GrFacebookOption } from 'react-icons/gr'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
-import authService from 'api/authService'
+import authService from 'services/authService'
 import { useState } from 'react'
 
 export default function RegisterPage() {
