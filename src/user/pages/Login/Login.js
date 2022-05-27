@@ -7,7 +7,6 @@ import { useContext } from 'react'
 import { GlobalState } from 'App'
 
 
-
 export default function LoginPage() {
    let redirector = useNavigate()
    let { setIsLogin } = useContext(GlobalState)
@@ -15,7 +14,7 @@ export default function LoginPage() {
       e.preventDefault()
       let { username, pw } = e.target.elements
       await authService.signIn(username.value, pw.value, res => {
-         console.log(res)
+         // console.log(res)
          if (res.success) {
             setIsLogin(true)
             redirector('/tim-viec')
