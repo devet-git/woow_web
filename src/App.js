@@ -19,30 +19,38 @@ import localData from 'user/utils/localData'
 export const GlobalState = createContext()
 export default function App() {
    const [isLogin, setIsLogin] = useState(false)
+   const [prevLocation, setPrevLocation] = useState(null)
+   let globalValue = {
+      isLogin, setIsLogin, prevLocation, setPrevLocation
+   }
 
    useEffect(() => {
       localData.get('user') ? setIsLogin(true) : setIsLogin(false)
    }, [setIsLogin])
 
    return (
-      <GlobalState.Provider value={{ isLogin, setIsLogin }} >
+      <GlobalState.Provider value={globalValue} >
          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/' element={<UserLayout />} >
-               <Route path='/tim-viec' element={<WorkPage />} />
+            <Route path={isLogin ? '/gioi-thieu' : '/'} element={<HomePage />} />
+            <Route element={<UserLayout />} >
+               <Route path='*' element={<NotFoundPage />} />
                <Route path='/dang-viec' element={<WorkPostingPage />} />
                {
                   isLogin ?
-                     (<Route path='/tai-khoan' element={<AccountManagementPage />} />)
-                     :
+                     (
+                        <>
+                           <Route path='/' element={<WorkPage />} />
+                           <Route path='/tai-khoan' element={<AccountManagementPage />} />
+                        </>
+                     ) :
                      (
                         <>
                            <Route path='/dang-ky' element={<RegisterPage />} />
                            <Route path='/dang-nhap' element={<LoginPage />} />
+                           <Route path='/tim-viec' element={<WorkPage />} />
                         </>
                      )
                }
-               <Route path='*' element={<NotFoundPage />} />
             </Route>
          </Routes>
       </ GlobalState.Provider>

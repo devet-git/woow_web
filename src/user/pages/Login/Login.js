@@ -8,8 +8,8 @@ import { GlobalState } from 'App'
 
 
 export default function LoginPage() {
-   let redirector = useNavigate()
-   let { setIsLogin } = useContext(GlobalState)
+   let navigate = useNavigate()
+   let { setIsLogin, prevLocation, setPrevLocation } = useContext(GlobalState)
    const formSubmit = async (e) => {
       e.preventDefault()
       let { username, pw } = e.target.elements
@@ -17,7 +17,8 @@ export default function LoginPage() {
          // console.log(res)
          if (res.success) {
             setIsLogin(true)
-            redirector('/tim-viec')
+            navigate(prevLocation || '/')
+            setPrevLocation(null)
          }
       })
    }
