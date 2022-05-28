@@ -1,20 +1,27 @@
 import './Home.scss'
+import localData from 'user/utils/localData'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
+import { GlobalState } from 'App'
 
-
-const Header = () => (
-   <header className='flex sp-between'>
-      <div className='logo'> Woow </div>
-      <nav className='nav ver-center flex sp-evenly'>
-         <Link to='/dang-nhap'>Đăng nhập</Link>
-      </nav>
-   </header>
-)
+const Header = () => {
+   let { isLogin } = useContext(GlobalState)
+   return (
+      <header className='flex sp-between' >
+         <div className='logo'>Woow</div>
+         <nav className='nav ver-center flex sp-evenly'>
+            {
+               isLogin ? <Link to='/tai-khoan'>{localData.get('user').username}</Link> : <Link to='/dang-nhap'>Đăng nhập</Link>
+            }
+         </nav>
+      </header >
+   )
+}
 
 export default function HomePage() {
+   const { isLogin } = useContext(GlobalState)
    // const windowWidth = window.innerWidth
-   let flexRef = useRef()
+   const flexRef = useRef()
    const [screenWidth, setScreenWidth] = useState()
    const [scrollTop, setScrollTop] = useState()
 
@@ -34,15 +41,14 @@ export default function HomePage() {
       <div className='home-page' style={{ height: screenWidth + 'px' }}>
          <div className="sticky-wrapper">
             <Header />
-            <Link to='/tim-viec' className='btn-link flex center'>
-               <img className='cloud-image' src={require('assets/images/cloud.png')} alt="" />
+            <Link to={isLogin ? '/' : '/tim-viec'} className='btn-link flex center'>
+               <img className='cloud-image' src={require('assets/images/cloud.png')} alt="cloud" />
                <span className='btn-name' >Tìm việc ngay</span>
             </Link>
-            <img className='work-image' src={require('assets/images/work.png')} alt="" />
+            <img className='work-image' src={require('assets/images/work.png')} alt="work" />
 
             {/* MORNING SCREEN */}
-            <div
-               className="screens-wrapper flex"
+            <div className="screens-wrapper flex"
                style={{ transform: `translateX(-${scrollTop}px)` }} ref={flexRef}
             >
                <section className="screen screen-morning flex flex-col hor-center">
@@ -52,7 +58,12 @@ export default function HomePage() {
                      }}
                   />
                   <div className='flex center'>
-                     <h1 style={{ textShadow: '-10px 10px 2px pink' }}>Chào buổi sáng bạn trẻ</h1>
+                     <h1 style={{ textShadow: '-10px 10px 2px pink', textAlign: 'center' }}>
+                        {isLogin ?
+                           localData.get('user').username + ', hãy bắt đầu công việc ngày hôm nay thôi nào'
+                           : 'Chào mừng bạn đã đến với website của tôi'
+                        }
+                     </h1>
                   </div>
                </section>
 
@@ -95,17 +106,12 @@ export default function HomePage() {
                   }}
                   >
                      <h1 style={{
-                        width: 'min-content',
-                        lineHeight: '1.5em',
-                        textAlign: 'center',
+                        width: 'min-content', lineHeight: '1.5em', textAlign: 'center',
                         paddingRight: '7px'
-                     }}
-                     >
-                        Dễ dàng tuyển dụng nhân sự</h1>
+                     }}>Dễ dàng tuyển dụng nhân sự</h1>
                      <img src={require('assets/images/recruit.jpg')} alt='AHIHI'
                         style={{
-                           width: '300px',
-                           borderRadius: '5px',
+                           width: '300px', borderRadius: '5px',
                            boxShadow: '2px 2px 5px 1px gray'
                         }}
                      />
