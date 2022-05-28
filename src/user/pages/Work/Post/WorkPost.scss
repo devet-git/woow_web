@@ -2,90 +2,67 @@
 @import "assets/scss/responsive";
 
 .work-posting-page {
-   // height: $maxHei;
-   // overflow: hidden;
+   // background-color: #d7ebf3;
    .left {
-      width: 70%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-   }
-   .--card {
-      background-color: lighten($color: #c7e3ee, $amount: 4);
-      width: 90%;
-      padding: 30px 100px;
-      box-shadow: 0 1px 5px #2c92ba;
-      border-radius: 5px;
-      h2 {
-         text-align: center;
-      }
-      .--form {
-         width: 100%;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         .--input-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0px;
+      flex: 0 0 65%;
+      .--card {
+         height: $maxHei;
+         background-color: lighten($color: #c7e3ee, $amount: 4);
+         padding: 30px 80px;
+         // box-shadow: 0 1px 5px #2c92ba;
+         border-radius: 5px;
+         width: 90%;
+         h2 {
+            text-align: center;
+         }
+         .--form {
             width: 100%;
-            .time-label {
-               font-size: 17px;
-            }
-            input,
-            select,
-            textarea {
-               border: 1px solid #368db0;
-               outline: none;
-               border-radius: 3px;
-               min-width: 145px;
-               padding: 5px 3px;
-               color: #368db0;
-               font-family: inherit;
-               font-size: 1em;
-               margin-left: 5px;
-            }
-            .work-name {
-               width: 85%;
-            }
-            .content {
-               height: 120px !important;
-               width: 85%;
-            }
-            .time,
-            .amount {
-               width: 200px;
-            }
-            .wage {
-               width: 37%;
-            }
-            .address {
-               width: 53%;
-            }
-         }
-         .confirm-btn {
-            border: none;
-            background-color: #368db0;
-            padding: 7px 0;
-            width: 20%;
-            cursor: pointer;
-            font-size: 18px;
-            color: white;
-            border-radius: 3px;
-            font-family: inherit;
-            margin-top: 20px;
-            &:hover {
-               box-shadow: 0 1px 3px rgb(62, 60, 60);
-               transition: 0.1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .--input-wrapper {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               margin: 10px 0px;
+               width: 100%;
+               .time-label {
+                  font-size: 17px;
+               }
+               input,
+               select,
+               textarea {
+                  border: 1px solid #368db0;
+                  outline: none;
+                  border-radius: 3px;
+                  min-width: 145px;
+                  padding: 5px 3px;
+                  color: #368db0;
+                  font-family: inherit;
+                  font-size: 1em;
+                  margin-left: 5px;
+               }
+               .work-name {
+                  width: 85%;
+               }
+               .content {
+                  height: 120px !important;
+                  width: 85%;
+               }
+               .wage {
+                  display: flex;
+                  width: 41%;
+               }
+               .address {
+                  width: 53%;
+               }
             }
          }
       }
    }
-
    .right {
       background-color: #d0e7fb;
-      width: 30%;
+      flex: 0 0 35%;
       height: $maxHei;
       overflow-y: auto;
       padding-bottom: 20px;
@@ -119,34 +96,40 @@
       width: 175px !important;
    }
    .address {
-      width: 51% !important;
+      width: 50% !important;
+   }
+   .wage {
+      width: 39% !important;
    }
 }
 @include responsive_1024 {
    .--card {
-      padding: 30px 60px !important;
+      padding: 30px 50px !important;
    }
    .time,
    .amount {
-      width: 170px !important;
+      width: 150px !important;
    }
    .address {
-      width: 50% !important;
+      width: 48% !important;
    }
 }
 @include responsive_992 {
    .--card {
-      padding: 30px 60px !important;
+      padding: 30px 50px !important;
    }
    .time,
    .amount {
-      width: 160px !important;
+      width: 145px !important;
    }
    .address {
-      width: 50% !important;
+      width: 47% !important;
    }
 }
 @include responsive_768 {
+   .--card {
+      height: 100% !important;
+   }
    .edit-bl {
       display: block !important;
    }
@@ -179,10 +162,16 @@
 }
 @include responsive_576 {
    .--card {
-      width: 95% !important;
-      padding: 20px 30px !important;
+      height: 100% !important;
+   }
+   .edit-bl {
+      display: block !important;
+   }
+   .--card {
+      width: 100% !important;
+      padding: 30px 20px !important;
       .--form {
-         width: 100% !important;
+         width: 90% !important;
          .--input-wrapper {
             width: 100% !important;
          }
@@ -190,13 +179,13 @@
    }
    .time,
    .amount {
-      width: 140px !important;
-   }
-   .wage {
-      width: 36% !important;
+      width: 130px !important;
    }
    .address {
       width: 47% !important;
+   }
+   .work-posting-page {
+      overflow: auto;
    }
    .left {
       width: 100% !important;
@@ -205,7 +194,11 @@
       display: none;
    }
 }
+
 @include responsive_320 {
+   .--card {
+      height: 100% !important;
+   }
    .edit-bl {
       display: block !important;
    }
@@ -239,6 +232,9 @@
    .time,
    .amount {
       width: 100px !important;
+   }
+   .wage {
+      width: 100% !important;
    }
    .address {
       width: 50% !important;

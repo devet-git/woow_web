@@ -32,6 +32,9 @@
             &:hover {
                border-bottom: 2px solid rgb(33, 112, 230);
             }
+            &.active {
+               border-bottom: 2px solid #00ff40;
+            }
          }
       }
       .login-link {

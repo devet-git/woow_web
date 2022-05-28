@@ -36,10 +36,10 @@
                border-radius: 3px;
                width: 90%;
                min-width: 145px;
-               padding: 5px 3px;
+               padding: 7px;
                color: #3721c4;
                font-family: inherit;
-               font-size: 17px;
+               font-size: 20px;
             }
          }
          .forgot-pw {
@@ -126,6 +126,7 @@
       .--card {
          width: 80% !important;
          padding: 30px 40px !important;
+         height: 90% !important;
       }
    }
 }
@@ -139,6 +140,7 @@
       }
       .--card {
          width: 55% !important;
+         height: 90% !important;
       }
    }
    .right {
@@ -155,6 +157,7 @@
       }
       .--card {
          width: 80% !important;
+         height: 90% !important;
       }
    }
    .right {

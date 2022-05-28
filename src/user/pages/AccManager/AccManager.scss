@@ -1,30 +1,52 @@
 @import "assets/scss/responsive";
-.account-management-page {
-   margin: 0px 150px;
-   padding: 20px 0px;
+@import "assets/scss/vars";
+.main {
+   min-height: $maxHei;
+   padding: 0 $gapCol;
+}
+.acc-manager-page {
+   min-height: $maxHei;
+   // padding: 15px 0px;
+   width: 100%;
    .user-info {
+      position: sticky;
+      top: $headerHei;
+      height: $maxHei;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 0 0 20%;
+      padding-top: 10px;
       .common {
+         margin-bottom: 10px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
          .avatar {
-            width: 150px;
-            height: 150px;
+            $avtSize: 180px;
+            width: $avtSize;
+            height: $avtSize;
             background-color: #cee0f5;
             border-radius: 50%;
+            overflow: hidden;
          }
          .real-name {
-            padding: 15px;
+            padding: 5px;
          }
       }
    }
    .button-edit {
-      background-color: #7bb3f4;
+      background-color: #a97300;
+      color: white;
       padding: 0px 10px;
       height: 35px;
       margin: 7px 0px;
       border-radius: 3px;
       &:hover {
-         box-shadow: 0 1px 3px rgb(72, 66, 66);
+         box-shadow: 0 1px 3px lighten(#a97300, 5);
          transition: 0.1s;
-         background-color: #7bb3f4;
+         background-color: lighten(#a97300, 10);
       }
    }
    .works-wrapper {
@@ -72,15 +94,44 @@
       }
    }
 }
+@media screen and (max-width: 768px) {
+   .acc-manager-page {
+      flex-direction: column;
+      align-items: center;
+      .user-info {
+         position: static;
+         height: auto;
+         width: 100%;
+         text-align: center;
+         border-bottom: 2px dotted;
+         .common {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background-color: #d2fff6;
+            padding: 10px 0;
+            margin-top: 10px;
+            border-radius: 7px;
+         }
+         .edit {
+            flex-direction: row;
+            gap: 20px;
+            margin: 10px 0;
+         }
+      }
+      .work-show {
+         grid-template-columns: 1fr !important;
+      }
+   }
+}
 @include responsive_992 {
    .account-management-page {
       margin: 0px 100px !important;
    }
 }
 @include responsive_768 {
-   .account-management-page {
-      margin: 0px 50px !important;
-   }
    .avatar {
       width: 130px !important;
       height: 130px !important;
