@@ -1,50 +1,68 @@
 import './Work.scss'
-// import { Link } from 'react-router-dom'
-import { Tooltip } from '@chakra-ui/react'
 import { GoLocation } from 'react-icons/go'
-// import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
+import { useContext } from 'react'
+import { WorkContext } from 'contexts/WorkContext'
+import { Link } from 'react-router-dom'
 
 
-const Sticky = () => <div className='sticky'>Expires in 5 minutes</div>
+const ViewedSticky = () => <div className='sticky'>Đã xem</div>
 
-export default function Work({ username, id, content, locate, sticky, setSelectedWorkID }) {
-
-   const Header = () => {
+export default function Work({ work }) {
+   let [isViewed, setIsViewed] = useState(false)
+   const { setSelectingWorkId } = useContext(WorkContext)
+   function Header() {
       return (
          <header className='flex ver-center sp-between'>
             <div className='user flex ver-center'>
                <img src={require('assets/images/work.png')} alt="avatar" className='avatar' />
-               <span>{username}</span>
+               <span>{work.poster_name}</span>
             </div>
-            <span className="locate"><GoLocation /> {locate}</span>
+            <span className="locate"><GoLocation /> {work.location}</span>
          </header>
       )
    }
-   const Content = () => {
+   function Content() {
       return (
          <div className="content">
-            {sticky && <Sticky />}
-            {content}
+            {isViewed && <ViewedSticky />}
+            {work.name}
          </div>
       )
    }
-   const Footer = () => {
+   function Footer() {
       return (
          <footer className='flex ver-center sp-between' >
-            <div className="salary">200k - 300k</div>
-            <Tooltip hasArrow label='2/10'>
+            <div className="salary">Tiền công: {work.salary}k</div>
+            {/* <Tooltip hasArrow label={'2/' + quantity}>
                <div className="amount-progress border rad-5">
-                  <div className="progress"></div>
+                  <div className="progress" style={{ width: (2 / quantity * 100) + '%' }}></div>
                </div>
-            </Tooltip>
+            </Tooltip> */}
          </footer>
       )
    }
+   const clickHandle = () => {
+      setSelectingWorkId(work.id)
+      setIsViewed(true)
+   }
+   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+   useLayoutEffect(() => {
+      window.addEventListener('resize', () => {
+         setWindowWidth(window.innerWidth)
+      })
+      return () => window.removeEventListener('resize', () => setWindowWidth(window.innerWidth))
+   }, [])
 
    // TODO: main part
-   return (
-      <div className="work-wrapper" onClick={() => setSelectedWorkID(id)}>
-         {/* <div className="arrow" style={{ display: isClicked && 'block' }}></div> */}
+   return windowWidth <= 768 ? (
+      <Link to={`/tim-viec/${work.id}`} className="work-wrapper" onClick={() => setSelectingWorkId(work.id)}>
+         <Header />
+         <Content />
+         <Footer />
+      </Link >
+   ) : (
+      <div className="work-wrapper" onClick={clickHandle}>
          <Header />
          <Content />
          <Footer />
