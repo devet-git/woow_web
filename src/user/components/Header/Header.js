@@ -1,41 +1,45 @@
 import './Header.scss'
-import { Link } from 'react-router-dom'
-import { GlobalState } from 'App'
+import { Link, useLocation } from 'react-router-dom'
 import { useContext } from 'react'
 import localData from 'user/utils/localData'
-import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
-
-const logout = () => {
-   localData.remove('user')
-   localData.remove('tokens')
-}
+import { Menu, MenuButton, MenuItem, MenuList, Tooltip } from '@chakra-ui/react'
+import { AuthContext } from 'contexts/AuthContext'
+import authService from 'services/authService'
 export default function Header() {
-   let { isLogin, setIsLogin } = useContext(GlobalState)
-   const AccountButton = () => {
+   function AccountButton() {
       return (
-         <Menu isLazy className='flex'>
-            <MenuButton >
-               {localData.get('user').username}
-            </MenuButton>
-            <MenuList>
-               {/* MenuItems are not rendered unless Menu is open */}
+         <Menu isLazy>
+            <Tooltip hasArrow bg='#237060' label={localData.get('user').real_name}>
+               <MenuButton
+                  style={{
+                     width: '40px', height: '40px',
+                     borderRadius: '50%',
+                     overflow: 'hidden',
+                     boxShadow: '0 0 3px 2px #5e9a8e'
+                  }}>
+                  <img src={require('assets/images/join.jpg')} alt="avt" style={{ width: '100%', transform: 'scale(1.5)' }} />
+               </MenuButton>
+            </Tooltip>
+
+            <MenuList style={{ backgroundColor: '#afdad1' }}>
                <Link to='tai-khoan'>
-                  <MenuItem>
-                     Tài khoản của tui
+                  <MenuItem style={{ backgroundColor: 'transparent' }}>
+                     Quản lý tài khoản
                   </MenuItem>
                </Link>
-               <MenuItem onClick={() => {
-                  logout()
-                  setIsLogin(false)
-               }}
-               >
-                  Đăng xuất
-               </MenuItem>
+               <MenuItem
+                  style={{ backgroundColor: 'transparent' }}
+                  onClick={() => {
+                     authService.signout()
+                     setIsSignout(true)
+                  }}
+               >Đăng xuất</MenuItem>
             </MenuList>
-         </Menu>
+         </Menu >
       )
    }
-
+   const { isSignin, setIsSignout } = useContext(AuthContext)
+   let currentRoute = useLocation().pathname
    return (
       <header className="app-header">
          <Link className='flex ver-center' to='/'>
@@ -43,12 +47,12 @@ export default function Header() {
          </Link>
          <nav className='flex ver-center'>
             <div className='nav-link-wrapper'>
-               <Link to={isLogin ? '/' : 'tim-viec'} className='nav-link'>Tìm việc</Link>
-               <Link to='dang-viec' className='nav-link'>Đăng việc</Link>
-               {isLogin && <Link to='gioi-thieu' className='nav-link'>Giới thiệu</Link>}
+               <Link to={isSignin ? '/' : 'tim-viec'} className={((currentRoute === '/' || currentRoute === '/tim-viec') && 'active') + ' nav-link'}>Tìm việc</Link>
+               <Link to='dang-viec' className={(currentRoute === '/dang-viec' && 'active') + ' nav-link'}>Đăng việc</Link>
+               {isSignin && <Link to='gioi-thieu' className='nav-link'>Giới thiệu</Link>}
             </div>
             <div className='flex ver-center'>
-               {isLogin ? (<AccountButton />) : (
+               {isSignin ? (<AccountButton />) : (
                   <Link to='dang-nhap' className='login-link flex ver-center sp-between'>Đăng nhập</Link>
                )}
             </div>

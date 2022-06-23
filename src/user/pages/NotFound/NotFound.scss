@@ -1,0 +1,31 @@
+@import "assets/scss/vars";
+
+.notfound-page {
+   height: $maxHei;
+   letter-spacing: 2px;
+   pointer-events: none;
+   user-select: none;
+   .status-code {
+      color: #ff7016;
+      font-size: 90px;
+      margin-right: 10px;
+      font-weight: bold;
+   }
+   .error-en {
+      text-decoration: underline;
+      text-decoration-color: #ff8031;
+      font-size: 50px;
+      font-weight: bold;
+      color: gray;
+   }
+   .error-vi {
+      color: #353535;
+      font-size: 35px;
+      font-weight: 1000;
+      background-color: #ffa3a322;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      // box-shadow: -2px 2px 7px #ffe9da;
+   }
+}

@@ -2,16 +2,16 @@ import './Home.scss'
 import localData from 'user/utils/localData'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { GlobalState } from 'App'
+import { AuthContext } from 'contexts/AuthContext'
 
 const Header = () => {
-   let { isLogin } = useContext(GlobalState)
+   let { isSignin } = useContext(AuthContext)
    return (
       <header className='flex sp-between' >
          <div className='logo'>Woow</div>
          <nav className='nav ver-center flex sp-evenly'>
             {
-               isLogin ? <Link to='/tai-khoan'>{localData.get('user').username}</Link> : <Link to='/dang-nhap'>Đăng nhập</Link>
+               isSignin ? <Link to='/tai-khoan'>{localData.get('user').real_name}</Link> : <Link to='/dang-nhap'>Đăng nhập</Link>
             }
          </nav>
       </header >
@@ -19,8 +19,7 @@ const Header = () => {
 }
 
 export default function HomePage() {
-   const { isLogin } = useContext(GlobalState)
-   // const windowWidth = window.innerWidth
+   const { isSignin } = useContext(AuthContext)
    const flexRef = useRef()
    const [screenWidth, setScreenWidth] = useState()
    const [scrollTop, setScrollTop] = useState()
@@ -41,7 +40,7 @@ export default function HomePage() {
       <div className='home-page' style={{ height: screenWidth + 'px' }}>
          <div className="sticky-wrapper">
             <Header />
-            <Link to={isLogin ? '/' : '/tim-viec'} className='btn-link flex center'>
+            <Link to='/tim-viec' className='btn-link flex center'>
                <img className='cloud-image' src={require('assets/images/cloud.png')} alt="cloud" />
                <span className='btn-name' >Tìm việc ngay</span>
             </Link>
@@ -59,8 +58,8 @@ export default function HomePage() {
                   />
                   <div className='flex center'>
                      <h1 style={{ textShadow: '-10px 10px 2px pink', textAlign: 'center' }}>
-                        {isLogin ?
-                           localData.get('user').username + ', hãy bắt đầu công việc ngày hôm nay thôi nào'
+                        {isSignin ?
+                           localData.get('user').real_name + ', hãy bắt đầu công việc ngày hôm nay thôi nào'
                            : 'Chào mừng bạn đã đến với website của tôi'
                         }
                      </h1>
@@ -86,7 +85,7 @@ export default function HomePage() {
                   <div className="card">
                      <img src={require('assets/images/join.jpg')} alt="" />
                      <h1>Tham gia cộng đồng nào</h1>
-                     <Link className='join-btn' to='dang-nhap'>Tham gia</Link>
+                     <Link className='join-btn' to='/dang-nhap'>Tham gia</Link>
                   </div>
                </section>
                <section className='flex ver-center hor-center' style={{
