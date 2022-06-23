@@ -2,11 +2,13 @@
 $avtSize: 40px;
 
 .work-wrapper {
+   display: block;
    cursor: pointer;
    width: 100%;
-   box-shadow: 0 0 3px gray;
-   border-radius: 5px;
+   box-shadow: 0 0 3px rgb(252, 226, 226);
+   border-radius: 7px 2px 7px 2px;
    padding: 10px 20px;
+   margin-bottom: 15px;
    background-color: #eeeeee;
    position: relative;
    &:nth-child(odd) {
@@ -44,16 +46,16 @@ $avtSize: 40px;
          right: -15px;
          top: -15px;
          padding: 0 5px;
-         background-color: white;
+         background-color: #dfdfdf;
          border: 1px solid;
-         border-radius: 3px;
+         border-radius: 5px 0 5px 0;
          font-size: 17px;
       }
    }
 
    footer {
       .salary {
-         background-color: #ffff00;
+         background-color: #69f55c;
          padding: 0 7px;
          font-size: 17px;
          border-radius: 3px;
@@ -67,7 +69,7 @@ $avtSize: 40px;
          overflow: hidden;
          .progress {
             background-color: $priColor;
-            width: 15%;
+            width: 100%;
             height: 100%;
          }
       }

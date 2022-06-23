@@ -22,6 +22,9 @@
    &.sp-around {
       justify-content: space-around;
    }
+   &.sp-end {
+      justify-content: flex-end;
+   }
    &.flex-row {
       flex-direction: row;
    }
